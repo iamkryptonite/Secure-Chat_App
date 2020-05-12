@@ -12,7 +12,7 @@ var User    = require('./models/user'),
 
 //=============================================================================================================    
 //'mongodb+srv://kryptonite:9433790689@cluster0-hxqma.mongodb.net/test?retryWrites=true&w=majority'
-mongoose.connect(process.env.MONGODB_URI,{useUnifiedTopology:true,useNewUrlParser:true });
+mongoose.connect(process.env.MONGODB_URL,{useUnifiedTopology:true,useNewUrlParser:true });
 mongoose.connection.once('open',()=>{
     console.log("database connected");
 });
