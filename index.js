@@ -61,7 +61,7 @@ io.on('connection', (socket) => {
         }else{
             destarray=dest.split("@");
         }
-        destarray.push(currentUser.username);
+        // destarray.push(currentUser.username);
         var msg = {
             message: data.message,
             destination:destarray,
