@@ -1,14 +1,13 @@
-/* body{
-    font-family: 'Nunito';
-} */
-
+body{
+    font-family: 'Balsamiq Sans', cursive;
+}
 h2{
     font-size: 18px;
     padding: 10px 20px;
     color: #575ed8;
 }
 
-#mario-chat{
+#chat{
     max-width: 600px;
     margin: 30px auto;
     border: 1px solid #ddd;
@@ -72,10 +71,10 @@ div.card{
     margin-top: 100px;
     width: 500px;
 }
-ul.list-group li.list-group-item{
+ul li.list-group-item{
     color: #575ed8;
 }
-ul.list-group li.header{
+ul li.header{
 
     background-color: #575ed8;
     color: white;
