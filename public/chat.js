@@ -1,5 +1,6 @@
 // Make connection
-var socket = io.connect('https://protected-island-04317.herokuapp.com');
+// var socket = io.connect('https://protected-island-04317.herokuapp.com');
+var socket = io.connect('https://http://localhost:5000');
 // Query DOM
 var message = document.getElementById('message'),
       handle = document.getElementById('handle'),
