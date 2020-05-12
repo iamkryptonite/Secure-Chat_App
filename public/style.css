@@ -1,5 +1,6 @@
 body{
     font-family: 'Balsamiq Sans', cursive;
+    /* background-color: black; */
 }
 h2{
     font-size: 18px;
@@ -84,4 +85,7 @@ ul li.header{
     border: 1px solid #ddd;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
     border-radius: 2px;    
+}
+#link{
+    color: #575ed8;
 }
