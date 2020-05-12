@@ -8,11 +8,9 @@ var express = require('express'),
 
 var User    = require('./models/user'),
     Message = require('./models/message');
-    
-        
 
-//'mongodb+srv://kryptonite:9433790689@cluster0-hxqma.mongodb.net/test?retryWrites=true&w=majority'
-//=============================================================================================================    
+//=============================================================================================================
+    
 var db=process.env.MONGODB_URL;
 mongoose.connect(db,{useUnifiedTopology:true,useNewUrlParser:true });
 mongoose.connection.once('open',()=>{
