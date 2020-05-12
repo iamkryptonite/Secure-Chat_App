@@ -1,6 +1,6 @@
 // Make connection
 var socket = io.connect('https://protected-island-04317.herokuapp.com');
-// var socket = io.connect('https://http://localhost:5000');
+// var socket = io.connect('http://localhost:3000');
 // Query DOM
 var message = document.getElementById('message'),
       handle = document.getElementById('handle'),
@@ -25,7 +25,7 @@ message.addEventListener('keypress', function(){
 socket.on('chat', function(data){
     feedback.innerHTML = '';
     handle.innerHTML = '';
-    if(data.destination.includes(username)===true)
+    if(data.destination.includes(username))
     output.innerHTML += '<p><strong>' + data.author + ': </strong>' + data.message + '</p>'; 
     // console.log(data.destination[i]+" - "+username);         
 });

@@ -7,7 +7,9 @@ var express = require('express'),
     LocalStrategy = require('passport-local');
 
 var User    = require('./models/user'),
-    Message = require('./models/message'); 
+    Message = require('./models/message');
+    
+        
 
 //'mongodb+srv://kryptonite:9433790689@cluster0-hxqma.mongodb.net/test?retryWrites=true&w=majority'
 //=============================================================================================================    
@@ -16,8 +18,8 @@ mongoose.connect(db,{useUnifiedTopology:true,useNewUrlParser:true });
 mongoose.connection.once('open',()=>{
     console.log("database connected");
 });
-
-var server = app.listen(process.env.PORT,function(){
+//process.env.PORT,process.env.IP
+var server = app.listen(process.env.PORT,process.env.IP,function(){
     console.log("server is live");
 });
 
@@ -74,7 +76,7 @@ io.on('connection', (socket) => {
                 console.log(err);
                 return res.redirect('/login');
             }
-            console.log(msg);
+            // console.log(msg);
         })
         io.sockets.emit('chat', msg);
     });
@@ -128,7 +130,6 @@ app.get('/logout',function(req,res){
     req.logout();
     res.redirect('/login');
 })
-
 
 function isLoggedIn(req,res,next){
     if(req.isAuthenticated())
