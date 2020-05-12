@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Chat App</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+        <link href="/public/style.css" rel="stylesheet" />
+    </head>
+    <body>        
+        <div class="row">
+            <div class="col-3">
+                <div id="chats">
+                    <nav class="navbar-light bg-light sidebar">
+                        <div class="sidebar-sticky">
+                            <ul class="navbar-nav flex-column list-group">
+                                <li class="list-group-item header">Chats</li>
+                                <% usernames.forEach(name=>{ %>
+                                    <li class="list-group-item"><%=name%></li>
+                                <% }) %>                          
+                            </ul>                            
+                        </div>      
+                    </nav>
+                </div>
+            </div>                        
+            <div class="col-6">
+                <div id="mario-chat">
+                    <h2 id="username"><%=currentUser%></h2>
+                    <div id="chat-window">
+                        <div id="output">
+                            <% messages.forEach(msg=>{ %>
+                                <% if(msg.destination.includes(currentUser)) %>
+                                <p><strong><%= msg.author %> : </strong><%= msg.message %></p>
+                            <% }) %>
+                        </div>
+                        <div id="feedback"></div>
+                    </div>
+                    <input id="handle" type="text" placeholder="To:@name" />
+                    <input id="message" type="text" placeholder="Message" />
+                    <button id="send">Send</button>
+                    <form action="/logout" method="GET">
+                        <button>Logout</button>
+                    </form>
+                </div>                
+            </div>
+        </div>
+    </body>
+    <script src="../public/chat.js" async defer></script>
+</html>
