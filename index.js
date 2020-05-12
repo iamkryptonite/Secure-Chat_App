@@ -8,9 +8,6 @@ var express = require('express'),
 
 var User    = require('./models/user'),
     Message = require('./models/message');
-
-var currentUser;
-var usernames=[];    
     
         
 
@@ -20,18 +17,15 @@ var db=process.env.MONGODB_URL;
 mongoose.connect(db,{useUnifiedTopology:true,useNewUrlParser:true });
 mongoose.connection.once('open',()=>{
     console.log("database connected");
-    User.find({},function(err,users){
-        users.forEach(user=>{
-            usernames.push(user.username);
-        })       
-    });
 });
 //process.env.PORT,process.env.IP
 var server = app.listen(process.env.PORT,process.env.IP,function(){
     console.log("server is live");
 });
 
+var currentUser;
 var io =socket(server);
+var usernames=[];
 
 app.set("view engine","ejs");
 app.use('/public',express.static('public'));
@@ -50,11 +44,11 @@ passport.deserializeUser(User.deserializeUser());
 //==============================================================================================
 
 
-// User.find({},function(err,users){
-//     users.forEach(user=>{
-//         usernames.push(user.username);
-//     })       
-// });
+User.find({},function(err,users){
+    users.forEach(user=>{
+        usernames.push(user.username);
+    })       
+});
 
 io.on('connection', (socket) => {
     console.log('made socket connection', socket.id);
