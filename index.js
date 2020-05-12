@@ -17,7 +17,7 @@ mongoose.connection.once('open',()=>{
     console.log("database connected");
 });
 
-var server = app.listen(3000,function(){
+var server = app.listen(process.env.PORT,function(){
     console.log("server is live");
 });
 
