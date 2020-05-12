@@ -10,7 +10,6 @@ var User    = require('./models/user'),
     Message = require('./models/message');
 
 var currentUser;
-var io =socket(server);
 var usernames=[];    
     
         
@@ -31,6 +30,8 @@ mongoose.connection.once('open',()=>{
 var server = app.listen(process.env.PORT,process.env.IP,function(){
     console.log("server is live");
 });
+
+var io =socket(server);
 
 app.set("view engine","ejs");
 app.use('/public',express.static('public'));
