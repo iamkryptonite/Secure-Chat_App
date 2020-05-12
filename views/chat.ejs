@@ -20,7 +20,7 @@
             <div id="chat-window">
                 <div id="output">
                     <% messages.forEach(msg=>{ %>
-                        <% if(msg.destination.includes(currentUser)) %>
+                        <% if(msg.destination.includes(currentUser)===true) %>
                         <p><strong><%= msg.author %> : </strong><%= msg.message %></p>
                     <% }) %>
                 </div>
