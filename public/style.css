@@ -89,3 +89,7 @@ ul li.header{
 #link{
     color: #575ed8;
 }
+#auth{
+    background: rgb(2,0,36);
+    background: linear-gradient(140deg, rgba(2,0,36,1) 17%, rgba(87,94,216,1) 83%, rgba(87,94,216,1) 100%);
+}
